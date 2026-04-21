@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "MCP (Model Context Protocol) server for Amazon Scraper API — drop into Claude Desktop, Cursor, or any MCP client",
   "keywords": [
     "mcp",
@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^0.6.0",
-    "amazon-scraper-api-sdk": "^0.1.1"
+    "amazon-scraper-api-sdk": "^0.1.2"
   },
   "devDependencies": {
     "typescript": "^5.4.0"
