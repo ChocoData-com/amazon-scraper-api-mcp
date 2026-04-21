@@ -1,0 +1,48 @@
+{
+  "name": "amazon-scraper-api-mcp",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "0.1.1",
+  "description": "MCP (Model Context Protocol) server for Amazon Scraper API — drop into Claude Desktop, Cursor, or any MCP client",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "amazon",
+    "scraper",
+    "claude",
+    "cursor",
+    "ai"
+  ],
+  "license": "MIT",
+  "author": "Amazon Scraper API",
+  "homepage": "https://amazonscraperapi.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChocoData-com/amazon-scraper-api-mcp.git"
+  },
+  "bugs": "https://github.com/ChocoData-com/amazon-scraper-api-mcp/issues",
+  "type": "module",
+  "bin": {
+    "amazon-scraper-api-mcp": "./dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.6.0",
+    "amazon-scraper-api-sdk": "^0.1.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}
