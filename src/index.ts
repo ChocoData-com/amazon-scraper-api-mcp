@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * amazon-scraper-api-mcp — MCP server exposing Amazon Scraper API tools to
+ * amazon-scraper-api-mcp - MCP server exposing Amazon Scraper API tools to
  * any MCP client (Claude Desktop, Cursor, Continue, etc.).
  *
  * Install (once the package is published):
@@ -99,7 +99,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
     {
       name: 'amazon_batch_create',
       description:
-        'Queue up to 1000 ASINs or search queries for async processing. Returns a batch id — poll with amazon_batch_status or receive a webhook callback.',
+        'Queue up to 1000 ASINs or search queries for async processing. Returns a batch id - poll with amazon_batch_status or receive a webhook callback.',
       inputSchema: {
         type: 'object',
         properties: {
