@@ -3,6 +3,7 @@
 [![npm](https://img.shields.io/npm/v/amazon-scraper-api-mcp)](https://www.npmjs.com/package/amazon-scraper-api-mcp)
 [![npm downloads](https://img.shields.io/npm/dm/amazon-scraper-api-mcp)](https://www.npmjs.com/package/amazon-scraper-api-mcp)
 [![license](https://img.shields.io/npm/l/amazon-scraper-api-mcp)](./LICENSE)
+[![Glama MCP server](https://glama.ai/mcp/servers/ChocoData-com/amazon-scraper-api-mcp/badges/score.svg)](https://glama.ai/mcp/servers/ChocoData-com/amazon-scraper-api-mcp)
 
 **MCP (Model Context Protocol) server for [Amazon Scraper API](https://www.amazonscraperapi.com/).** Plugs into Claude Desktop, Cursor, Claude Code, Continue, or any MCP-compatible AI client. Gives your model live Amazon product data as a first-class tool call.
 
