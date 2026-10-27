@@ -88,13 +88,12 @@ Generic browser tools that try to load `amazon.com` typically get blocked (robot
 - Returns structured JSON (typed fields), not HTML soup
 - Supports 20+ marketplaces with country-matched residential IPs
 - Handles batch (hundreds to thousands of ASINs) with webhook delivery
-- Built-in rate-limit backoff
 
 ## Error handling
 
-Errors are surfaced to the model as tool errors with a `code` field and a hint. The model then decides whether to retry or abandon the sub-task. You don't have to write error-handling logic yourself.
+Errors are surfaced to the model as tool errors whose message carries the HTTP status and the API's error code, for example `HTTP 502: target_unreachable` or `HTTP 402: INSUFFICIENT_CREDITS`. The model then decides whether to retry or abandon the sub-task. The server itself does not retry.
 
-Common codes: `INVALID_API_KEY`, `INSUFFICIENT_CREDITS`, `RATE_LIMITED`, `target_unreachable`, `amazon-robot-or-human`, `extraction_failed`, `SERVICE_OVERLOADED`. Full table: [amazonscraperapi.com/docs/errors](https://amazonscraperapi.com/docs/errors).
+Common codes: `INVALID_API_KEY`, `INSUFFICIENT_CREDITS`, `RATE_LIMITED`, `CONCURRENCY_LIMIT`, `product_not_found`, `target_unreachable` (retry after 60s or more), `extraction_failed`, `SERVICE_OVERLOADED`. Full table: [amazonscraperapi.com/docs/guides/errors](https://amazonscraperapi.com/docs/guides/errors).
 
 ## Get an API key
 
@@ -104,7 +103,6 @@ Common codes: `INVALID_API_KEY`, `INSUFFICIENT_CREDITS`, `RATE_LIMITED`, `target
 
 - **Website:** https://www.amazonscraperapi.com/
 - **Docs:** https://amazonscraperapi.com/docs
-- **Status:** https://amazonscraperapi.com/status
 - **Pricing:** https://amazonscraperapi.com/pricing
 - **Node SDK:** [amazon-scraper-api-sdk](https://www.npmjs.com/package/amazon-scraper-api-sdk) · **Python SDK:** [amazonscraperapi-sdk](https://pypi.org/project/amazonscraperapi-sdk/) · **Go SDK:** [github.com/ChocoData-com/amazon-scraper-api-sdk-go](https://github.com/ChocoData-com/amazon-scraper-api-sdk-go) · **CLI:** [amazon-scraper-api-cli](https://www.npmjs.com/package/amazon-scraper-api-cli)
 
