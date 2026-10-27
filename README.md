@@ -18,7 +18,7 @@ That's **one prompt**. Without MCP, your AI can't fetch Amazon pages (Amazon blo
 | Tool | What it does | Typical use |
 |---|---|---|
 | `amazon_product` | Fetch one product by ASIN or URL | "get price + rating for B09HN3Q81F" |
-| `amazon_search` | Keyword search with sort/filter | "top 10 cast iron skillets under $50" |
+| `amazon_search` | Keyword search with sort and pagination (one page per call) | "top 10 cast iron skillets under $50" |
 | `amazon_batch_create` | Queue up to 1000 ASINs for async scrape | "scrape all 500 products in my catalog, webhook me when done" |
 | `amazon_batch_status` | Poll a batch's progress | "how much of batch xyz is done?" |
 

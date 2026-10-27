@@ -3,7 +3,7 @@
   "name": "io.github.ChocoData-com/amazon-scraper-api-mcp",
   "description": "Scrape Amazon products, search, and async batch ASIN lookups across 20 marketplaces",
   "title": "Amazon Scraper API",
-  "version": "0.1.4",
+  "version": "0.1.6",
   "repository": {
     "url": "https://github.com/ChocoData-com/amazon-scraper-api-mcp",
     "source": "github",
@@ -14,7 +14,7 @@
       "registryType": "npm",
       "registryBaseUrl": "https://registry.npmjs.org",
       "identifier": "amazon-scraper-api-mcp",
-      "version": "0.1.4",
+      "version": "0.1.6",
       "transport": {
         "type": "stdio"
       },

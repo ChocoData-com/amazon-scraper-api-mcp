@@ -44,7 +44,7 @@ if (!API_KEY) {
 const client = new AmazonScraperAPI(API_KEY);
 
 const server = new Server(
-  { name: 'amazonscraperapi', version: '0.1.0' },
+  { name: 'amazonscraperapi', version: '0.1.6' },
   { capabilities: { tools: {} } }
 );
 
@@ -72,6 +72,10 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
             type: 'string',
             description: 'Content language xx_YY (e.g. en_US, de_DE). Not all combos supported per marketplace.',
           },
+          country: {
+            type: 'string',
+            description: 'Optional 2-letter uppercase exit country (e.g. "US"). Defaults to the marketplace country; does not change the marketplace or currency.',
+          },
         },
         required: ['query'],
       },
@@ -79,19 +83,26 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
     {
       name: 'amazon_search',
       description:
-        'Run an Amazon keyword search. Returns ranked product listings with organic/sponsored positions, prices, ratings, and image URLs.',
+        'Run an Amazon keyword search. Returns ONE results page: ranked product listings with organic/sponsored positions, prices, ratings, and image URLs. Call again with start_page to get further pages.',
       inputSchema: {
         type: 'object',
         properties: {
           query: { type: 'string', description: 'Search keywords' },
-          domain: { type: 'string', default: 'com' },
+          domain: {
+            type: 'string',
+            description: 'Amazon marketplace TLD',
+            enum: [
+              'com', 'co.uk', 'de', 'fr', 'it', 'es', 'nl', 'pl', 'se', 'ca',
+              'com.mx', 'com.br', 'com.au', 'co.jp', 'sg', 'in', 'com.tr', 'ae', 'sa', 'eg',
+            ],
+            default: 'com',
+          },
           sort_by: {
             type: 'string',
             enum: ['best_match', 'price_asc', 'price_desc', 'avg_customer_review', 'newest'],
             default: 'best_match',
           },
-          start_page: { type: 'number', minimum: 1, maximum: 10, default: 1 },
-          pages: { type: 'number', minimum: 1, maximum: 10, default: 1 },
+          start_page: { type: 'number', minimum: 1, default: 1, description: 'Results page to fetch (1-based)' },
         },
         required: ['query'],
       },
